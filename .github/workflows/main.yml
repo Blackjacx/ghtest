@@ -4,10 +4,6 @@ on:
   create: 
     tags:
       - '*'
-        
-#on:
-#  release:
-#    types: [published]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,8 +15,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: blackjacx/backlog-notifier@1
+    - name: Checkout
+      uses: actions/checkout@v2
+    - uses: blackjacx/backlog-notifier@master
       with:
-        ticket-ref-template: BACKLOG-#
-        gh-repo-name: ghtest
-        message: This feature has just been released for iOS version ${{ github.ref }} 🎉 Now it takes typically 2-3 days until the release is available in the App Store.
+        backlog-ticket-prefix: 'BACKLOG'
+        backlog-repo-name: 'ghtest'
+        message: 'This feature has just been released for iOS version # 🎉 Now it takes typically 2-3 days until the release is available in the App Store.'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
