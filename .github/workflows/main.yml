@@ -23,5 +23,4 @@ jobs:
       with:
         ticket-ref-template: BACKLOG-#
         gh-repo-name: ghtest
-        tag: ${{ github.ref }}
-        platform: iOS
+        message: This feature has just been released for iOS version ${{ github.ref }} 🎉 Now it takes typically 2-3 days until the release is available in the App Store.
