@@ -20,7 +20,7 @@ jobs:
     - uses: blackjacx/backlog-notifier@master
       with:
         backlog-ticket-prefix: 'BACKLOG'
-        backlog-repo-name: 'ghtest'
+        backlog-repo-name: 'backlog'
         message: 'This feature has just been released for iOS version # 🎉 Now it takes typically 2-3 days until the release is available in the App Store.'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
