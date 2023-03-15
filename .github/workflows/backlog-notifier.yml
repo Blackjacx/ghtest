@@ -13,7 +13,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout
       uses: actions/checkout@v2
-    - uses: blackjacx/backlog-notifier@main
+    - uses: blackjacx/backlog-notifier@typescript-conversion
       with:
         reference-repo-prefixes: 'BACKLOG, GHTEST'
         reference-repo-names: 'backlog, ghtest'
