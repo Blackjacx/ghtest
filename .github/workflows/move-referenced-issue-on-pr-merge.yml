@@ -1,19 +1,19 @@
-name: Backlog Notifier
+name: Move Referenced Issue On PR Merge
 
 on:
-  push: 
-    tags:
-      - '*'
+  pull_request:
+    branches: develop
+    types: closed
 
 jobs:
-  notify-backlog:
+  move-issue:
     runs-on: ubuntu-latest
     
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout
       uses: actions/checkout@v3
-    - uses: blackjacx/backlog-notifier@main
+    - uses: blackjacx/backlog-notifier@add-actions-input
       with:
         repo-references: |
           {
@@ -22,5 +22,7 @@ jobs:
               {"repo_id": "GHTEST", "repo_name": "ghtest"}
             ]
           }
+        action: move
+        new-project-board-column: 'Done'
       env:
         GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
