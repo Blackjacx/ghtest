@@ -22,5 +22,6 @@ jobs:
               {"repo_id": "GHTEST", "repo_name": "ghtest"}
             ]
           }
+        message: 'Dang! This feature has just been released in version # 🚀'
       env:
         GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
